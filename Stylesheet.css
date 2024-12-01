@@ -5,15 +5,16 @@ body{
     background-attachment: fixed;
     background-size: cover;
 }
+#logo{
+    border: 8;
+    border-color: antiquewhite;
+    color: whitesmoke;
+    text-decoration-line: none;
+}
 .links{
     color: whitesmoke;
     text-decoration-line: none;
     display: inline;
-    width: auto;
-    height: auto;
-}
-#pannel{
-    border-style: double; border-radius: 10%;
 }
 .lorem{
     color: whitesmoke;
