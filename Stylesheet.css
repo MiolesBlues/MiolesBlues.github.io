@@ -21,4 +21,7 @@ body{
 }
 #references{
     align-self: self-end;
+    color: whitesmoke;
+    text-decoration-line: none;
+    display: inline;
 }
