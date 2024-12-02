@@ -19,3 +19,6 @@ body{
 .lorem{
     color: whitesmoke;
 }
+#references{
+    align-self: self-end;
+}
