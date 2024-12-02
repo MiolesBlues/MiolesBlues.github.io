@@ -6,7 +6,7 @@ body{
     background-size: cover;
 }
 #logo{
-    border: 8;
+    border: 8px solid;
     border-color: antiquewhite;
     color: whitesmoke;
     text-decoration-line: none;
@@ -20,7 +20,6 @@ body{
     color: whitesmoke;
 }
 #references{
-    align-self: self-end;
     color: whitesmoke;
     text-decoration-line: none;
     display: inline;
