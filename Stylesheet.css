@@ -1,26 +1,38 @@
 body{
-    font-family: "Parkinsans", serif ;
-    background-image: url(https://wallpapercave.com/wp/wp14172971.jpg);
+    font-family: "Parkinsans", serif;
+    /*background-image: url(https://wallpapercave.com/wp/wp14172971.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover;*/
+    margin: 2px solid;
 }
 #logo{
-    border: 8px solid;
-    border-color: antiquewhite;
-    color: whitesmoke;
-    text-decoration-line: none;
-}
-.links{
-    color: whitesmoke;
+    color: black;
     text-decoration-line: none;
     display: inline;
 }
-.lorem{
-    color: whitesmoke;
+#Catalog{
+    border-top: 2px;
+    border-bottom: 2px;
+    border-right: 2px;
+    /*border-color: antiquewhite;*/
+    color: black;
+    display: inline;
+    text-decoration-line: none;
+}
+#Men_section{
+    color: black;
+    text-decoration-line: none;
+    display: inline;
+}
+#Women_section{
+    color: black;
+    text-decoration-line: none;
+    display: inline;
 }
 #references{
-    color: whitesmoke;
+    color: black;
     text-decoration-line: none;
-    display: inline;
+    display: flexbox;
+    align-self: center;
 }

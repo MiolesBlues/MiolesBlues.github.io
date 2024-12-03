@@ -1,0 +1,13 @@
+.Size_Guide {
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#Grid {
+    color: black;
+    border: 3px;
+    border-color: black;
+    display: flex;
+    justify-content: center;
+}
