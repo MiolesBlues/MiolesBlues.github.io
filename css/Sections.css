@@ -30,12 +30,14 @@ body{
     align-items: center;
     flex-flow: nowrap row;
     overflow: hidden;
+    color: whitesmoke;
+    text-decoration-line: none;
 }
 #bottom_bar{
-    width: 100%;
     background-color: rgb(200, 200, 200);
     padding-inline: 9px;
     margin-left: -9px;
+    margin-right: -9px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -95,12 +97,6 @@ body{
     max-height: fit-content;
     overflow: hidden;
 }
-#whole_block{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-flow: wrap;
-}
 #top_block{
     margin-top: 15px;
     margin-bottom: -5px;
@@ -112,7 +108,7 @@ body{
     justify-content: center;
     color: whitesmoke;
 }
-    .quantity_of_products{
+    #quantity_of_products{
         background-color: rgb(206, 205, 210);
         border-radius: 10px;
         height: 22px;
@@ -121,6 +117,12 @@ body{
         align-items: center;
         justify-content: center;
     }
+#whole_block{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-flow: wrap;
+}
 .left_and_right_columns{
     display: flex;
     flex-flow: row wrap;
@@ -139,34 +141,17 @@ body{
     width: 255px;
     color: black;
 }
-.column{
-    display: flex;
-    flex-flow: column wrap;
-}
-.items{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-}
 .description{
     font-size: 13px;
     width: 225px;
     height: 23px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.price{
-    font-size: 13px;
-    margin-top: -2px;
+    margin-top: -3px;
+    margin: 0px 0px 0px 3px;
 }
 .big_items{
-    display: flex;
-    flex-flow: column wrap;
-    align-items: center;
     min-height: 350px;
     height: 778px;
-    width: 528px;
-    margin-bottom: 38px;
+    margin-bottom: 25px;
 }
 #bottom_block{
     width: 1300px;
@@ -177,7 +162,7 @@ body{
     justify-content: center;
     color: whitesmoke;
 }
-    .navigation_panel{
+    .pages{
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -207,6 +192,10 @@ footer{
     justify-content: space-around;
     align-items: flex-start;
     overflow: hidden;
+}
+.footer_block{
+    display: flex;
+    flex-flow: column wrap;
 }
 .bottom_sections{
     color: whitesmoke;
