@@ -218,7 +218,7 @@ summary::-webkit-details-marker {
     border-style: groove;
     display: flex;
 }
-/*filter quantity size guide*/
+/*filter, quantity, size guide*/
 /*catalog*/
 #whole_block {
     display: flex;
@@ -310,6 +310,7 @@ summary::-webkit-details-marker {
     justify-content: center;
     align-items: center;
     width: 30%;
+    min-width: 400px;
     height: 40%;
     background-color: rgb(168, 168, 169, 0.758);
     border-radius: 5%;
