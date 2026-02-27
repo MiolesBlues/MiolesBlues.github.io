@@ -144,19 +144,73 @@ function renderCharts(rows) {
     });
 
     // Chart 3 bubble
-    const pts = rows.map(r => {
-        if (r.task_complexity == null || r.execution_time_seconds == null || r.accuracy_score == null) return null;
-        return { x: r.task_complexity, y: r.execution_time_seconds, r: 3 + Math.max(0, Math.min(1, r.accuracy_score)) * 10 };
-    }).filter(Boolean);
+    const bubbleMap = new Map();
+
+    for (const r of rows) {
+        if (r.task_complexity == null || r.execution_time_seconds == null || r.accuracy_score == null) continue;
+
+        const key = r.task_complexity; // complexity level (2..10)
+        const cur = bubbleMap.get(key) || { sumTime: 0, sumAcc: 0, count: 0 };
+
+        cur.sumTime += r.execution_time_seconds;
+        cur.sumAcc += r.accuracy_score;
+        cur.count += 1;
+
+        bubbleMap.set(key, cur);
+    }
+
+    const bubblePts = [...bubbleMap.entries()]
+        .map(([x, v]) => {
+            const avgTime = v.sumTime / v.count;
+            const avgAcc = v.sumAcc / v.count;
+
+            // Bigger bubbles like the reference image
+            const radius = 10 + Math.max(0, Math.min(1, avgAcc)) * 28;
+
+            return { x: Number(x), y: Number(avgTime.toFixed(2)), r: Number(radius.toFixed(2)) };
+        })
+        .sort((a, b) => a.x - b.x);
 
     new Chart(document.getElementById("chartBubble"), {
         type: "bubble",
-        data: { datasets: [{ label: "Tasks", data: pts }] },
+        data: {
+            datasets: [{
+                label: "Efficiency",
+                data: bubblePts,
+                backgroundColor: "rgba(54, 117, 145, 0.85)",
+                borderColor: "rgba(54, 117, 145, 1)",
+                borderWidth: 0
+            }]
+        },
         options: {
-            responsive: true, maintainAspectRatio: false,
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: ["Figure 3: Analysis of Efficiency: Time,", "Accuracy and Complexity"],
+                    padding: { top: 10, bottom: 12 }
+                }
+            },
             scales: {
-                x: { grid: { color: grid }, title: { display: true, text: "Task complexity" } },
-                y: { grid: { color: grid }, title: { display: true, text: "Execution time (s)" } }
+                x: {
+                    min: 0,
+                    max: 12,
+                    ticks: { stepSize: 2 },
+                    grid: { color: grid },
+                    title: { display: false }
+                },
+                y: {
+                    min: 0,
+                    max: 90,
+                    ticks: {
+                        stepSize: 10,
+                        callback: (v) => Number(v).toFixed(2)
+                    },
+                    grid: { color: grid },
+                    title: { display: false }
+                }
             }
         }
     });
@@ -259,4 +313,5 @@ Papa.parse(CSV_PATH, {
         renderCharts(rows);
         wireMobileNav();
     }
+
 });
