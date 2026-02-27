@@ -164,7 +164,6 @@ function renderCharts(rows) {
             const avgTime = v.sumTime / v.count;
             const avgAcc = v.sumAcc / v.count;
 
-            // Bigger bubbles like the reference image
             const radius = 10 + Math.max(0, Math.min(1, avgAcc)) * 28;
 
             return { x: Number(x), y: Number(avgTime.toFixed(2)), r: Number(radius.toFixed(2)) };
@@ -315,4 +314,5 @@ Papa.parse(CSV_PATH, {
     }
 
 });
+
 
